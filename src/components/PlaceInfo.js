@@ -1,38 +1,10 @@
 // 식당을 선택했을 때 식당의 정보를 표시하는 컴포넌트
 import { useState } from "react";
-import Menu from "./Menu";
 import UserReviewForm from "./UserReviewForm";
+import Place from "./Place";
 
 const PlaceInfo = (props) => {
-  const [id, setId] = useState(1);
-  const placeList = [
-    {
-      id: 1,
-      name: "금돼지식당",
-      category: "고기",
-      menu: { 눈꽃목살: "18,000", 본삼겹: "19,000", 껍데기: "14,000" },
-    },
-    {
-      id: 2,
-      name: "약수 순대국",
-      category: "한식",
-      menu: { 눈꽃목살: "18,000", 본삼겹: "19,000", 껍데기: "14,000" },
-    },
-    {
-      id: 3,
-      name: "만포 막국수",
-      category: "면",
-      menu: { 눈꽃목살: "18,000", 본삼겹: "19,000", 껍데기: "14,000" },
-    },
-  ];
-
-  var place = null;
-  for (let i = 0; i < placeList.length; i++) {
-    if (placeList[i].id === id) {
-      place = placeList[i];
-    }
-  }
-
+  
   const jsonLocalStorage = {
     setItem: (key, value) => {
       localStorage.setItem(key, JSON.stringify(value));
@@ -81,8 +53,7 @@ const PlaceInfo = (props) => {
 
   return (
     <div>
-      <h2>{place.name}</h2>
-      <h3>{place.category}</h3>
+      <Place id={props.id} placeList={props.placeList}></Place>
       <UserReviewForm
         handleHeartClick={handleHeartClick}
         heartCounter={heartCounter}
@@ -91,8 +62,6 @@ const PlaceInfo = (props) => {
         handleReviewText={handleReviewText}
         reviewText={reviewText}
       ></UserReviewForm>
-
-      <Menu menu={place.menu}></Menu>
     </div>
   );
 };
