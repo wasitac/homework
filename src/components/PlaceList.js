@@ -20,12 +20,14 @@ const PlaceList = () => {
       menu: { "물 막국수": "8,000", "비빔 막국수": "8,000" },
     },
   ];
-  return (
-    <div>
-      {placeList.map((place, index, placeList) => (
-        <PlaceCard id={index} placeList={placeList} />
-      ))}
-    </div>
-  );
+  const cardPrint = placeList.map((place, index, placeList) => (
+    <PlaceCard
+      id={index}
+      key={index}
+      placeList={placeList}
+    />
+  ));
+
+  return <div>{cardPrint}</div>;
 };
 export default PlaceList;

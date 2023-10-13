@@ -23,8 +23,6 @@ const placeList = [
   },
 ];
 function App() {
-  
-
   var page = <PlaceList />;
   if (0) {
     page = <PlaceInfo id={0} placeList={placeList} />;

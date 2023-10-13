@@ -2,6 +2,7 @@
 import { useState } from "react";
 import UserReviewForm from "./UserReviewForm";
 import Place from "./Place";
+import Menu from "./Menu";
 
 const PlaceInfo = (props) => {
   
@@ -62,6 +63,7 @@ const PlaceInfo = (props) => {
         handleReviewText={handleReviewText}
         reviewText={reviewText}
       ></UserReviewForm>
+      <Menu menu={props.placeList.menu}></Menu>
     </div>
   );
 };
